@@ -20,7 +20,12 @@ class Account extends Component {
     })
   }
   //write withdrawal function
-
+  withdrawal = () => {
+    this.setState({
+      balance: this.state.balance - this.state.amount
+    })
+  }
+  
   handleChange = (e)=>{
     if(!isNaN(e.target.value)){
       this.setState({
@@ -38,7 +43,7 @@ class Account extends Component {
         placeholder="enter an amount" />
         <input type="button" onClick={this.deposit} 
         value="Deposit" />
-        <input type="button" value="Withdraw" />
+        <input type="button" onClick={this.withdrawal} value="Withdraw" />
       </div>
     )
   }
